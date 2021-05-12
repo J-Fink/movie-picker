@@ -1,0 +1,14 @@
+node_modules/
+.cache/
+public
+.env
+
+.DS_Store
+*.log
+haters/
+.next/
+.build/
+layout.md
+variables.env
+*.env
+.keystone
