@@ -1,0 +1,21 @@
+import Link from 'next/link';
+import MovieStyles from './styles/MovieStyles';
+import Rating from './styles/Rating';
+import Title from './styles/Title';
+
+export default function Movie({ movie }) {
+    return (
+        <MovieStyles>
+            <Title>
+                <Link href={`/movie/${movie.id}`}>{movie.name}</Link>
+            </Title>
+            {movie.rating ? 
+                <Rating>
+                    {movie.rating}
+                </Rating>
+                :
+                ""
+            }
+        </MovieStyles>
+    )
+}

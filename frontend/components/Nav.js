@@ -6,6 +6,7 @@ export default function Nav() {
         <Link href="/watch">Watch Next</Link>
         <Link href="/seen">Seen Already</Link>
         <Link href="/pick">Pick A Movie</Link>
+        <Link href="/add">Add A Movie</Link>
     </NavStyles>
   );
 }
