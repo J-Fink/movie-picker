@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import styled from 'styled-components';
 import Movie from './Movie';
 
-const ALL_MOVIES_QUERY = gql`
+export const ALL_MOVIES_QUERY = gql`
     query ALL_MOVIES_QUERY {
     allMovies {
         id

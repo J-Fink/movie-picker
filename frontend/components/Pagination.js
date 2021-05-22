@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 import Head from 'next/head';
 import Link from 'next/link';
 import PaginationStyles from './styles/PaginationStyles';
-import DisplayError from './ErrorMessage';
+import DisplayError from './DisplayError';
 import { perPage } from '../config';
 
 export const PAGINATION_QUERY = gql`
