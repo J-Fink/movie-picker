@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import DeleteMovie from './DeleteMovie';
 import MovieStyles from './styles/MovieStyles';
 import Rating from './styles/Rating';
 import Title from './styles/Title';
@@ -23,6 +24,7 @@ export default function Movie({ movie }) {
                         id: movie.id
                     }
                 }}>Edit</Link>
+                <DeleteMovie id={movie.id}>Delete</DeleteMovie>
             </div>
         </MovieStyles>
     )
