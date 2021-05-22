@@ -1,2 +1,2 @@
-export { default } from './watch';
+export { default } from './movies';
   

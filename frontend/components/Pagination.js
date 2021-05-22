@@ -8,7 +8,7 @@ import { perPage } from '../config';
 
 export const PAGINATION_QUERY = gql`
   query PAGINATION_QUERY {
-    _allProductsMeta {
+    _allMoviesMeta {
       count
     }
   }
@@ -18,23 +18,23 @@ export default function Pagination({ page }) {
   const { error, loading, data } = useQuery(PAGINATION_QUERY);
   if (loading) return 'Loading...';
   if (error) return <DisplayError error={error} />;
-  const { count } = data._allProductsMeta;
+  const { count } = data._allMoviesMeta;
   const pageCount = Math.ceil(count / perPage);
   return (
     <PaginationStyles>
       <Head>
         <title>
-          Sick Fits - Page {page} of {pageCount}
+          Movie Picker - Page {page} of {pageCount}
         </title>
       </Head>
-      <Link href={`/products/${page - 1}`}>
+      <Link href={`/movies/${page - 1}`}>
         <a aria-disabled={page <= 1}>← Prev</a>
       </Link>
       <p>
         Page {page} of {pageCount}
       </p>
       <p>{count} Items Total</p>
-      <Link href={`/products/${page + 1}`}>
+      <Link href={`/movies/${page + 1}`}>
         <a aria-disabled={page >= pageCount}>Next →</a>
       </Link>
     </PaginationStyles>

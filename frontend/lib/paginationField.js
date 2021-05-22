@@ -9,7 +9,7 @@ export default function paginationField() {
 
       // Read the number of items on the page from the cache
       const data = cache.readQuery({ query: PAGINATION_QUERY });
-      const count = data?._allProductsMeta?.count;
+      const count = data?._allMoviesMeta?.count;
       const page = skip / first + 1;
       const pages = Math.ceil(count / first);
 

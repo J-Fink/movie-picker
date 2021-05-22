@@ -2,10 +2,11 @@ import gql from 'graphql-tag';
 import { useQuery } from '@apollo/client';
 import styled from 'styled-components';
 import Movie from './Movie';
+import { perPage } from '../config';
 
 export const ALL_MOVIES_QUERY = gql`
-    query ALL_MOVIES_QUERY {
-    allMovies {
+    query ALL_MOVIES_QUERY($skip: Int = 0, $first: Int) {
+    allMovies(first: $first, skip: $skip) {
         id
         description
         name
@@ -22,8 +23,13 @@ const MoviesListStyles = styled.div`
     margin: 0 auto;
 `;
 
-export default function Watch() {
-    const { data, error, loading } = useQuery(ALL_MOVIES_QUERY);
+export default function Movies({ page }) {
+    const { data, error, loading } = useQuery(ALL_MOVIES_QUERY, {
+        variables: {
+            skip: page * perPage - perPage,
+            first: perPage,
+        }
+    });
     console.log(data, error, loading);
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error.message}</p>;

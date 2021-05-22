@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import useForm from "../lib/useForm";
 import Form from "./styles/Form";
 import gql from 'graphql-tag';
-import { ALL_MOVIES_QUERY } from './Watch';
+import { ALL_MOVIES_QUERY } from './Movies';
 import Router from 'next/router';
 
 const CREATE_MOVIE_MUTATION = gql`
