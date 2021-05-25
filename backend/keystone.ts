@@ -4,6 +4,7 @@ import { withItemData, statelessSessions } from '@keystone-next/keystone/session
 import { User } from './schemas/User';
 import { Movie } from './schemas/Movie';
 import 'dotenv/config';
+import { sendPasswordResetEmail } from './lib/mail';
 
 const databaseURL = process.env.DATABASE_URL;
 
@@ -19,8 +20,14 @@ const { withAuth } = createAuth({
     initFirstItem: {
         fields: ['name', 'email', 'password'],
         //Todo: add in initial roles here
-    }
-})
+    },
+    passwordResetLink: {
+        async sendTokens(args) {
+            // console.log(args);
+            await sendPasswordResetEmail(args.token, args.identity);
+        },
+    },
+});
 
 export default withAuth(
     config({
@@ -47,7 +54,7 @@ export default withAuth(
         },
         //Add session values here
         session: withItemData(statelessSessions(sessionConfig), {
-            User: 'id'
+            User: 'id name email'
         })
     }
     )
