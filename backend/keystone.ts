@@ -2,6 +2,7 @@ import { createAuth } from '@keystone-next/auth';
 import { config, createSchema } from '@keystone-next/keystone/schema';
 import { withItemData, statelessSessions } from '@keystone-next/keystone/session'
 import { User } from './schemas/User';
+import { Role } from './schemas/Role';
 import { Movie } from './schemas/Movie';
 import 'dotenv/config';
 import { sendPasswordResetEmail } from './lib/mail';
@@ -44,7 +45,8 @@ export default withAuth(
         lists: createSchema({
             //Schema items go in here
             User,
-            Movie
+            Movie,
+            Role
         }),
         ui: {
             //Show the UI only for people who pass this test
