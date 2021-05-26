@@ -1,9 +1,9 @@
 import { checkbox } from '@keystone-next/fields';
 
 export const permissionFields = {
-  canManageProducts: checkbox({
+  canManageMovies: checkbox({
     defaultValue: false,
-    label: 'User can Update and delete any product',
+    label: 'User can Update and delete any movie',
   }),
   canSeeOtherUsers: checkbox({
     defaultValue: false,

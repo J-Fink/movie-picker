@@ -6,6 +6,7 @@ import { Role } from './schemas/Role';
 import { Movie } from './schemas/Movie';
 import 'dotenv/config';
 import { sendPasswordResetEmail } from './lib/mail';
+import { permissionsList } from './schemas/fields';
 
 const databaseURL = process.env.DATABASE_URL;
 
@@ -30,7 +31,7 @@ const { withAuth } = createAuth({
     },
 });
 
-export default withAuth(
+export default /*withAuth(*/
     config({
         server: {
             cors: {
@@ -56,8 +57,8 @@ export default withAuth(
         },
         //Add session values here
         session: withItemData(statelessSessions(sessionConfig), {
-            User: 'id name email'
+            User: `id name email { ${permissionsList.join(' ')} }`
         })
     }
     )
-);
+// );

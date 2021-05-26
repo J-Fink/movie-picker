@@ -1,9 +1,16 @@
-import { select, text } from "@keystone-next/fields";
+import { relationship, select, text } from "@keystone-next/fields";
 import { list } from "@keystone-next/keystone/schema";
+import { isSignedIn, rules } from '../access';
 
 export const Movie = list({
     // TOODO
     // ACCESS
+    access: {
+        create: isSignedIn,
+        read: rules.canReadMovies,
+        update: rules.canManageMovies,
+        delete: rules.canManageMovies,
+    },
     fields: {
         name: text({ isRequired: true }),
         description: text({
@@ -19,6 +26,12 @@ export const Movie = list({
                 {label: 'R', value: 'R'},
                 {label: 'NC-17', value: 'NC-17'},
             ]
-        })
+        }),
+        user: relationship({
+            ref: 'User.movies',
+            defaultValue: ({ context }) => ({
+                connect: { id: context.session.itemId },
+            }),
+        }),
     },
 });
