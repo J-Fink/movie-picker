@@ -31,7 +31,7 @@ const { withAuth } = createAuth({
     },
 });
 
-export default /*withAuth(*/
+export default withAuth(
     config({
         server: {
             cors: {
@@ -61,4 +61,4 @@ export default /*withAuth(*/
         })
     }
     )
-// );
+);

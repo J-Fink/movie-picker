@@ -23,4 +23,4 @@ export const User = list({
         }),
         //add roles
     },
-})
+});
