@@ -57,7 +57,7 @@ export default withAuth(
         },
         //Add session values here
         session: withItemData(statelessSessions(sessionConfig), {
-            User: `id name email { ${permissionsList.join(' ')} }`
+            User: `id name email role { ${permissionsList.join(' ')} }`
         })
     }
     )
