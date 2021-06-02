@@ -5,7 +5,9 @@
     "author": "Joe Fink",
     "license": "MIT",
     "scripts": {
-        "dev": "keystone-next"
+        "dev": "keystone-next",
+        "start": "keystone-next start",
+        "build": "keystone-next build"
     },
     "babel": {
         "presets": [
