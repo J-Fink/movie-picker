@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/client';
 import Form from './styles/Form';
 import useForm from '../lib/useForm';
 import DisplayError from './DisplayError';
+import { useUser } from './User';
 
 const SIGNUP_MUTATION = gql`
   mutation SIGNUP_MUTATION(
@@ -37,6 +38,8 @@ export default function SignUp() {
     resetForm();
     // Send the email and password to the graphqlAPI
   }
+  const me = useUser();
+  if (!me) 
   return (
     <Form method="POST" onSubmit={handleSubmit}>
       <h2>Sign Up For an Account</h2>
@@ -84,4 +87,5 @@ export default function SignUp() {
       </fieldset>
     </Form>
   );
+  return null;
 }

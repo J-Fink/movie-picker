@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/client';
 import Form from './styles/Form';
 import useForm from '../lib/useForm';
 import DisplayError from './DisplayError';
+import { useUser } from './User';
 
 const RESET_MUTATION = gql`
   mutation RESET_MUTATION(
@@ -43,7 +44,8 @@ export default function Reset({ token }) {
     resetForm();
     // Send the email and password to the graphqlAPI
   }
-  return (
+  const me = useUser();
+  if(!me) return (
     <Form method="POST" onSubmit={handleSubmit}>
       <h2>Reset Your Password</h2>
       <DisplayError error={error || successfulError} />
@@ -78,4 +80,5 @@ export default function Reset({ token }) {
       </fieldset>
     </Form>
   );
+  return null;
 }

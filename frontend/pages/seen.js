@@ -1,8 +1,10 @@
+import PleaseSignIn from "../components/PleaseSignIn";
+
 export default function SeenPage() {
     return (
-        <div>
+        <PleaseSignIn>
         <p>Movies I have already seen!</p>
-        </div>
+        </PleaseSignIn>
     )
   }
   
