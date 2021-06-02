@@ -17,9 +17,9 @@ export const permissionFields = {
     defaultValue: false,
     label: 'User can CRUD roles',
   }),
-  canManageCart: checkbox({
+  canManagePassword: checkbox({
     defaultValue: false,
-    label: 'User can see and manage cart and cart items',
+    label: 'User can reset passwords',
   }),
   canManageOrders: checkbox({
     defaultValue: false,

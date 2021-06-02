@@ -48,6 +48,16 @@ export const rules = {
                 return true;
             }
             //otherwise only update themselves
-            return { user: { id: session.itemId }};
+            return { id: session.itemId };
+        },
+        canManagePassword({ session }: ListAccessArgs) {
+            if (!isSignedIn({ session })) {
+                return false;
+            }
+            if (permissions.canManagePassword({ session })) {
+                return true;
+            }
+            //otherwise only update themselves
+            return { id: session.itemId };
         },
     };

@@ -10,15 +10,23 @@ export const User = list({
         delete: permissions.canManageUsers,
     },
     ui: {
-        // hideCreate: (args) => !permissions.canManageUsers(args),
-        // hideDelete: (args) => !permissions.canManageUsers(args),
+        hideCreate: (args) => !permissions.canManageUsers(args),
+        hideDelete: (args) => !permissions.canManageUsers(args),
     },
     fields: {
         name: text({ isRequired: true }),
         email: text({ isRequired: true, isUnique: true}),
-        password: password(),
+        password: password({
+            access: {
+                update: permissions.canManagePassword,
+            }
+        }),
         role: relationship({
             ref: 'Role.assignedTo',
+            access: {
+                create: permissions.canManageUsers,
+                update: permissions.canManageUsers,
+            }
         }),
         movies: relationship({
             ref: 'Movie.user',
