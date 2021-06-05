@@ -37,7 +37,7 @@ export default withAuth(
             cors: {
                 origin: ['https://www.moviealternatives.com/'],
                 credentials: true,
-                methods: ['GET', 'POST'],
+                methods: ['GET', 'OPTIONS', 'PATCH', 'DELETE', 'POST', 'PUT'],
             },
         },
         db: {
