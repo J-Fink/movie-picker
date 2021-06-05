@@ -7,6 +7,7 @@ import { endpoint, prodEndpoint } from '../config';
 import paginationField from './paginationField';
 
 function createClient({ headers, initialState }) {
+  console.log(headers, `these are the headers!`);
   return new ApolloClient({
     link: ApolloLink.from([
       onError(({ graphQLErrors, networkError }) => {
@@ -41,7 +42,9 @@ function createClient({ headers, initialState }) {
         },
       },
     }).restore(initialState || {}),
-  });
+  }
+  
+  );
 }
 
 export default withApollo(createClient, { getDataFromTree });
