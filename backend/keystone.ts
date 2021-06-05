@@ -35,7 +35,7 @@ export default withAuth(
     config({
         server: {
             cors: {
-                origin: [process.env.FRONTEND_URL],
+                origin: ['https://www.moviealternatives.com/'],
                 credentials: true,
                 methods: ['GET', 'POST'],
             },
