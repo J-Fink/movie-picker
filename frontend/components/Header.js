@@ -8,8 +8,22 @@ const Logo = styled.h1`
   margin-left: 2rem;
   position: relative;
   z-index: 2;
-  background: red;
-  transform: skew(-7deg);
+  background: var(--logo);
+  /* transform: skew(-7deg); */
+  div {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: var(--background);
+  }
+  .top { top: -10px; }
+  .bottom { bottom: -10px; }
+  .left { left: -10px; }
+  .right { right: -10px; }
+  /* .outline {
+    border: 1px solid black;
+  } */
   a {
     color: white;
     text-decoration: none;
@@ -39,7 +53,13 @@ export default function Header() {
     <HeaderStyles>
       <div className="bar">
         <Logo>
-          <Link href="/">Movie Picker</Link>
+          <div className="outline">
+            <div className="top left"></div>
+            <div className="top right"></div>
+            <div className="bottom left"></div>
+            <div className="bottom right"></div>
+            <Link href="/">Movie Picker</Link>
+          </div>
         </Logo>
         <Nav />
       </div>
