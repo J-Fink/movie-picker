@@ -10,7 +10,7 @@ const DELETE_MOVIE_MUTATION = gql`
     }
 `;
 function update(cache, payload) {
-    console.log(payload);
+    // console.log(payload);
     //below line rips the item out of the cache, which it is then re-rendered because it changes
     cache.evict(cache.identify(payload.data.deleteMovie));
 }

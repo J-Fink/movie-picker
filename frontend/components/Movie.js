@@ -19,7 +19,7 @@ export default function Movie({ movie }) {
             }
             <div className="buttonList">
                 <Link href={{
-                    pathname: 'update',
+                    pathname: '/update',
                     query: {
                         id: movie.id
                     }

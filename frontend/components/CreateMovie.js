@@ -71,9 +71,9 @@ export default function CreateMovie() {
                         id="description"
                         name="description"
                         placeholder="Description"
-                        value={inputs.description}
+                        value={inputs.description || ""}
                         onChange={handleChange}
-                    />
+                    >{console.log(inputs.description, typeof(inputs.description))}</textarea>
                 </label>
                 <label htmlFor="rating">
                     Rating

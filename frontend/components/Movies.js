@@ -30,7 +30,7 @@ export default function Movies({ page }) {
             first: perPage,
         }
     });
-    console.log(data, error, loading);
+    // console.log(data, error, loading);
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error.message}</p>;
     return (

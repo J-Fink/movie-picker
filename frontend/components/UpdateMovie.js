@@ -68,7 +68,7 @@ export default function UpdateMovie({ id }) {
                         id="name"
                         name="name"
                         placeholder="Name"
-                        value={inputs.name}
+                        value={inputs.name || ""}
                         onChange={handleChange}
                     />
                 </label>
@@ -78,7 +78,7 @@ export default function UpdateMovie({ id }) {
                         id="description"
                         name="description"
                         placeholder="Description"
-                        value={inputs.description}
+                        value={inputs.description || ""}
                         onChange={handleChange}
                     />
                 </label>
@@ -88,10 +88,11 @@ export default function UpdateMovie({ id }) {
                         id="rating"
                         name="rating"
                         placeholder="Rating"
-                        value={inputs.rating}
+                        // defaultValue={'Pick A Rating'}
+                        value={inputs.rating || ""}
                         onChange={handleChange}
                     >
-                        <option selected value="Pick A Rating">Pick A Rating</option>
+                        <option value="Pick A Rating">Pick A Rating</option>
                         <option value="G">G</option>
                         <option value="PG">PG</option>
                         <option value="PG-13">PG-13</option>

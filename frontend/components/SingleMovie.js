@@ -18,7 +18,7 @@ export default function SingleMovie({ id }) {
         variables: {
             id: id
     }});
-    console.log(data);
+    // console.log(data);
     if(loading) return <p>Loading...</p>
     if(error) return <DisplayError error={error}/>
     const { Movie } = data;
