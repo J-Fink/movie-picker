@@ -16,6 +16,7 @@ const Logo = styled.h1`
   /* transform: skew(-7deg); */
   .wrapper {
     display: flex;
+    position: relative;
   }
   div.dot {
     position: absolute;

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import SignOut from './SignOut';
 import NavStyles from './styles/NavStyles';
+import Ticket from './Ticket';
 import { useUser } from './User';
 
 export default function Nav() {
@@ -8,12 +9,14 @@ export default function Nav() {
   // console.log(user);
   return (
     <NavStyles>      
-        <Link href="/movies">Movies </Link>
+        {/* <Link href="/movies">Movies </Link> */}
+        <Ticket name="Movies" path="/movies" />
+        
         {user && (
           <>
-            <Link href="/seen">Seen Already</Link>
-            <Link href="/pick">Pick A Movie</Link>
-            <Link href="/add">Add A Movie</Link>
+            <Ticket name="Seen Already" path="/seen">Seen Already</Ticket>
+            <Ticket name="Pick A Movie" path="/pick">Pick A Movie</Ticket>
+            <Ticket name="Add A Movie" path="/add">Add A Movie</Ticket>
             <SignOut />
           </>
         )
@@ -21,7 +24,8 @@ export default function Nav() {
         }
         {!user && (
           <>
-            <Link href="/signin">Sign In</Link>
+            {/* <Link href="/signin">Sign In</Link> */}
+            <Ticket name="Sign In" path="/signin" />
           </>
         )
 

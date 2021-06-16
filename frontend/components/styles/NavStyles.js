@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const NavStyles = styled.ul`
-  margin: 0;
+  display: flex;
+  /* margin: 0;
   padding: 0;
   display: flex;
   justify-self: end;
@@ -67,7 +68,7 @@ a:before {
     text-decoration: none;
     color: red;
     border-right: 1px solid red;
-}
+} */
 `;
 
 export default NavStyles;
