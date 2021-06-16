@@ -46,7 +46,12 @@ const Logo = styled.h1`
     color: white;
     text-decoration: none;
     text-transform: uppercase;
+    text-align: center;
     /* padding: 0.5rem 1rem; */
+  }
+  a:hover {
+    color: var(--red);
+    text-decoration: none;
   }
 `;
 
