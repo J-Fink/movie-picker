@@ -2,6 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import Nav from './Nav';
 import Search from './Search';
+import Ticket from './Ticket';
 
 const Logo = styled.h1`
   font-size: 4rem;
@@ -17,31 +18,29 @@ const Logo = styled.h1`
   .wrapper {
     display: flex;
     position: relative;
+    border-right: 2px dashed black;
+    border-left: 2px dashed black;
   }
   div.dot {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 17px;
+    height: 17px;
     border-radius: 100%;
     background-color: var(--background);
   }
   .top { 
     position: absolute;
-    top: -6px; }
+    top: -7px; }
   .bottom { 
     position: absolute;
-    bottom: -2px; }
+    bottom: -5px; }
   .left { 
     position: absolute;
-    left: -5px; }
+    left: -8px; }
   .right { 
     position: absolute;
-    right: -4px; }
-  .outline {
-    border-radius: 0;
-    height: 100px;
-    width: 100px;
-  }
+    right: -8px; }
+ 
   a {
     margin: auto;
     color: white;
@@ -77,6 +76,7 @@ export default function Header() {
     <HeaderStyles>
       <div className="bar">
         <Logo>
+          {/* <Ticket path="/" name="Movie Picker" /> */}
           <div className="wrapper">
             <div className="top left dot"></div>
             <div className="top right dot"></div>

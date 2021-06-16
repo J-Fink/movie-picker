@@ -10,13 +10,13 @@ export default function Nav() {
   return (
     <NavStyles>      
         {/* <Link href="/movies">Movies </Link> */}
-        <Ticket name="Movies" path="/movies" />
+        <Ticket name="Movi" path="/movies" />
         
         {user && (
           <>
-            <Ticket name="Seen Already" path="/seen">Seen Already</Ticket>
-            <Ticket name="Pick A Movie" path="/pick">Pick A Movie</Ticket>
-            <Ticket name="Add A Movie" path="/add">Add A Movie</Ticket>
+            <Ticket name="Seen" path="/seen" />
+            <Ticket name="Pick" path="/pick" />
+            <Ticket name="Add" path="/add" />
             <SignOut />
           </>
         )
