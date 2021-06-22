@@ -7,7 +7,9 @@ export default function PickPage() {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error.message}</p>
     const array = Shuffle([...data.allMovies]);
-    
+    function randomMovie() {
+        alert(`here is your movie, ${array[0].name}`);
+    }
     
     // const displayMovie = data.allMovies;
     // console.log(displayMovie);
@@ -15,11 +17,10 @@ export default function PickPage() {
     // const displayMovieShuffle = Shuffle(displayMovie);
     // console.log(displayMovieShuffle);
     return (
-        <div>
-            <div>{array[0].name}</div>
-        <p>Pick a Movie for me!</p>
-        {/* TODO: Set parameters, included movies they've seen, only ones they haven't seen, etc. */}
-        </div>
+        <>
+            <button onClick={randomMovie} type="button">Pick A Movie For Me!</button>
+            {/* TODO: Set parameters, included movies they've seen, only ones they haven't seen, etc. */}
+        </>
     )
   }
   
