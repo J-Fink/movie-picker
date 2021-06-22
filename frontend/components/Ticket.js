@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const TicketStyles = styled.div`
-  width: 135px;
-  height: 80px;
+export const TicketStyles = styled.div`
+  --border-color: #00000033;
+  width: 227px;
+  height: 125px;
   background-color: var(--logo);
   /* margin-right: 5px; */
   .wrapper {
@@ -13,10 +14,10 @@ const TicketStyles = styled.div`
     line-height: 3rem;
     display: flex;
     position: relative;
-    border-right: 1.5px dashed black;
-    border-left: 1.5px dashed black;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-right: 2px dashed black;
+    border-left: 2px dashed black;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
   /* background-color: var(--logo); */
   }
   div.dot {
@@ -28,13 +29,17 @@ const TicketStyles = styled.div`
   }
   .top { 
     position: absolute;
-    top: -9px; }
+    top: -9px;
+    border-bottom: 1px solid var(--border-color);
+    }
   .bottom { 
     position: absolute;
-    bottom: -10px; }
+    bottom: -10px;
+    border-top: 1px solid var(--border-color);
+    }
   .left { 
     position: absolute;
-    left: -8px; }
+    left: -10px; }
   .right { 
     position: absolute;
     right: -8px; }
@@ -51,12 +56,25 @@ const TicketStyles = styled.div`
     color: var(--red);
     text-decoration: none;
   }
+  button:hover {
+    color: var(--red);
+    text-decoration: none;
+    cursor: pointer;
+  }
   .inner-border {
-    border: 1px solid black;
+    border: 1px solid var(--border-color);
     border-radius: 17px;
     margin: 10px;
     width: inherit;
     height: inherit;
+  }
+  button {
+    color: white;
+    font-size: 2rem;
+    text-transform: uppercase;
+    background: inherit;
+    border: none;
+    width: inherit;
   }
   /* a:before {
     content: '';

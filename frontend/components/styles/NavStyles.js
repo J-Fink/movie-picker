@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 const NavStyles = styled.ul`
   display: flex;
+  padding: 0;
+  align-items: center;
   /* margin: 0;
   padding: 0;
   display: flex;
