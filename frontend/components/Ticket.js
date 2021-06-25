@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 export const TicketStyles = styled.div`
   --border-color: #00000033;
-  width: 227px;
-  height: 125px;
+  width: 115.7px;
+  height: 64px;
   background-color: var(--logo);
   /* margin-right: 5px; */
   .wrapper {
@@ -24,8 +24,13 @@ export const TicketStyles = styled.div`
     position: absolute;
     width: 15px;
     height: 15px;
-    border-radius: 100%;
     background-color: var(--background);
+    /* shape-outside: circle(96% at 0%);
+    clip-path: circle(59% at 0%); */
+    border-radius: 50%;
+    /* border: 1px solid var(--border-color); */
+    /* transform: rotate(45deg); */
+    /* transform-origin: 13px 0px; */
   }
   .top { 
     position: absolute;
@@ -36,6 +41,15 @@ export const TicketStyles = styled.div`
     position: absolute;
     bottom: -10px;
     border-top: 1px solid var(--border-color);
+    transform: rotate(-41deg);
+    transform-origin: 2px 7px;
+    }
+
+    .bottom:last-of-type {
+      background-color: blue;
+    }
+    .bottom.left {
+      transform: rotate(45deg);
     }
   .left { 
     position: absolute;

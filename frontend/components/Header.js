@@ -14,6 +14,7 @@ const Logo = styled.h1`
   background: var(--logo);
   width: 227px;
   height: 125px;
+  transform: rotate(20deg);
   /* transform: skew(-7deg); */
   .wrapper {
     display: flex;
