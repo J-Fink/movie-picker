@@ -9,22 +9,56 @@ const NavStyles = styled.header`
     --line-height: 6.5vh;
     left: 0;
     width: 100%;
-    height: 35px;/*var(--headerHeight);*/
+    height: 77px;/*var(--headerHeight);*/
     display: flex;
     /* background: red; var(--navColor); */
     position: fixed;
     justify-content: flex-end;
     text-transform: uppercase;
-    padding-top: 27px;
+    padding-top: 0px;
+    background-color: var(--background);
+    border-bottom:1px solid var(--border-color);
     
     /* margin: 0 auto; */
     z-index: 3;
     align-self: center;
     //This targets the first and last of the nav items
-    .Ticket__TicketStyles-sc-1icmcvz-0:last-of-type {
-      background-color: tan;
-    }
     .Ticket__TicketStyles-sc-1icmcvz-0:first-of-type {
+      background-color: tan;
+      .wrapper div.top.left.dot {
+        transform-origin: 12px 0px;
+        transform: rotate(-49deg);
+        height: 9px;
+        width: 9px;
+        display: block; //because left dots were made display none so they don't double up
+      }
+      .wrapper div.bottom.left.dot {
+        transform-origin: 13px 10px;
+        transform: rotate(45deg);
+        height: 9px;
+        width: 9px;
+        display: block; //because left dots were made display none so they don't double up
+      }
+    }
+    .Ticket__TicketStyles-sc-1icmcvz-0:last-of-type {
+      .wrapper div.top.right.dot {
+        transform-origin: -2px 3px;
+        transform: rotate(47deg);
+        height: 9px;
+        width: 9px;
+      }
+      .wrapper {
+        border-right: 2px dashed black;
+      }
+      .wrapper div.bottom.right.dot {
+        
+        
+        border-top: 1px solid var(--border-color); transform-origin: -2px 7px;
+        transform: rotate(-45deg);
+        height: 9px;
+        width: 9px;
+      }
+      
       background-color: tan;
     }
     

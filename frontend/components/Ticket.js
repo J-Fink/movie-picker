@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 export const TicketStyles = styled.div`
-  --border-color: #00000033;
+
   width: 115.7px;
   height: 64px;
   background-color: var(--logo);
@@ -14,7 +14,7 @@ export const TicketStyles = styled.div`
     line-height: 3rem;
     display: flex;
     position: relative;
-    border-right: 2px dashed black;
+    /* border-right: 2px dashed black; */
     border-left: 2px dashed black;
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
@@ -22,41 +22,37 @@ export const TicketStyles = styled.div`
   }
   div.dot {
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     background-color: var(--background);
     /* shape-outside: circle(96% at 0%);
     clip-path: circle(59% at 0%); */
     border-radius: 50%;
+    transform: rotate(0deg);
     /* border: 1px solid var(--border-color); */
     /* transform: rotate(45deg); */
     /* transform-origin: 13px 0px; */
+    z-index: 1;
   }
   .top { 
     position: absolute;
-    top: -9px;
+    top: -7px;
     border-bottom: 1px solid var(--border-color);
     }
   .bottom { 
     position: absolute;
-    bottom: -10px;
+    bottom: -7px;
     border-top: 1px solid var(--border-color);
     transform: rotate(-41deg);
     transform-origin: 2px 7px;
     }
 
-    .bottom:last-of-type {
-      background-color: blue;
-    }
-    .bottom.left {
-      transform: rotate(45deg);
-    }
   .left { 
     position: absolute;
     left: -10px; }
   .right { 
     position: absolute;
-    right: -8px; }
+    right: -7px; }
    a {
     margin: auto;
     color: white;
@@ -65,6 +61,13 @@ export const TicketStyles = styled.div`
     text-align: center;
     font-size: 2rem;
     /* padding: 0.5rem 1rem; */
+  }
+  .bottom.left {
+    /* background-color: blue; */
+    display: none;
+  }
+  .top.left {
+    display: none;
   }
   a:hover {
     color: var(--red);

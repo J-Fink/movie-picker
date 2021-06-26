@@ -21,6 +21,7 @@ const GlobalStyles = createGlobalStyle`
     --background: #e6ce81;
     --maxWidth: 1000px;
     --bs: 0 12px 24px 0 rgba(0,0,0,0.09);
+    --border-color: #00000033;
     box-sizing: border-box;
     font-size: 62.5%;
   }
