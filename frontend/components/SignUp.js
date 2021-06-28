@@ -4,6 +4,7 @@ import Form from './styles/Form';
 import useForm from '../lib/useForm';
 import DisplayError from './DisplayError';
 import { useUser } from './User';
+import { TicketButton } from './Ticket';
 
 const SIGNUP_MUTATION = gql`
   mutation SIGNUP_MUTATION(
@@ -83,7 +84,8 @@ export default function SignUp() {
             onChange={handleChange}
           />
         </label>
-        <button type="submit">Sign In!</button>
+        <TicketButton buttonType={"button"} message={"Sign Up!"}>
+        </TicketButton>
       </fieldset>
     </Form>
   );

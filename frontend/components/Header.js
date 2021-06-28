@@ -1,20 +1,23 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import Nav from './Nav';
+import Nav, { Hamburger } from './Nav';
 import Search from './Search';
 import Ticket from './Ticket';
 
 const Logo = styled.h1`
-  font-size: 4rem;
+  font-size: 2.75rem;
   margin-left: 2rem;
+  margin-top: 10px;
+  margin-bottom: 15px;
   line-height: 3rem;
   display: flex;
   position: relative;
-  z-index: 2;
+  z-index: 4;
+  /* transform: ${props => (props.open ? "rotate(5deg)" : "rotate(5deg)")}; */
   background: var(--logo);
-  width: 227px;
-  height: 125px;
-  transform: rotate(20deg);
+  width: 139px;
+  height: 58px;
+  transform: rotate(10deg);
   /* transform: skew(-7deg); */
   .wrapper {
     display: flex;
@@ -76,8 +79,8 @@ export default function Header() {
   return (
     <HeaderStyles>
       <div className="bar">
-        <Logo>
           {/* <Ticket path="/" name="Movie Picker" /> */}
+        {/* <Logo>
           <div className="wrapper">
             <div className="top left dot"></div>
             <div className="top right dot"></div>
@@ -85,7 +88,7 @@ export default function Header() {
             <div className="bottom right dot"></div>
             <Link href="/">Movie Picker</Link>
           </div>
-        </Logo>
+        </Logo> */}
         <Nav />
       </div>
       <div className="sub-bar">

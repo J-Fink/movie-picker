@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/client';
 import Form from './styles/Form';
 import useForm from '../lib/useForm';
 import DisplayError from './DisplayError';
+import { TicketButton } from './Ticket';
 
 const REQUEST_RESET_MUTATION = gql`
   mutation REQUEST_RESET_MUTATION($email: String!) {
@@ -54,7 +55,7 @@ export default function RequestReset() {
             onChange={handleChange}
           />
         </label>
-        <button type="submit">Request Reset!</button>
+        <TicketButton buttonType={"submit"} message={"Request Reset!"}></TicketButton>
       </fieldset>
     </Form>
   );

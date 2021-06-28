@@ -4,6 +4,7 @@ import Form from './styles/Form';
 import useForm from '../lib/useForm';
 import DisplayError from './DisplayError';
 import { useUser } from './User';
+import { TicketButton } from './Ticket';
 
 const RESET_MUTATION = gql`
   mutation RESET_MUTATION(
@@ -76,7 +77,7 @@ export default function Reset({ token }) {
             onChange={handleChange}
           />
         </label>
-        <button type="submit">Request Reset!</button>
+        <TicketButton buttonType={"submit"} message={"Request Reset!"}></TicketButton>
       </fieldset>
     </Form>
   );

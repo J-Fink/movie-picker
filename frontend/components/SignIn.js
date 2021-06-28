@@ -5,6 +5,7 @@ import { useMutation } from '@apollo/client';
 import { CURRENT_USER_QUERY, useUser } from './User';
 import DisplayError from './DisplayError';
 import Router from 'next/router';
+import { TicketButton } from './Ticket';
 
 const SIGNIN_MUTATION = gql`
     mutation SIGNIN_MUTATION($email: String!, $password: String!) {
@@ -80,7 +81,8 @@ if (!me) return (
                     onChange={handleChange}
                     />
                 </label>
-                <button type="submit">Sign In!</button>
+                <TicketButton buttonType={"submit"} message={"Sign In!"}>
+                </TicketButton>
             </fieldset>
         </Form>
 )

@@ -5,11 +5,13 @@ import SignOut from './SignOut';
 // import NavStyles from './styles/NavStyles';
 import Ticket from './Ticket';
 import { useUser } from './User';
+import { TicketStyles } from './Ticket';
+
 const NavStyles = styled.header`
     --line-height: 6.5vh;
     left: 0;
     width: 100%;
-    height: 77px;/*var(--headerHeight);*/
+    height: 96px;/*var(--headerHeight);*/
     display: flex;
     /* background: red; var(--navColor); */
     position: fixed;
@@ -22,15 +24,16 @@ const NavStyles = styled.header`
     /* margin: 0 auto; */
     z-index: 3;
     align-self: center;
-    //This targets the first and last of the nav items
-    .Ticket__TicketStyles-sc-1icmcvz-0:first-of-type {
+    //This targets the first and last of the nav items, issue of the id changing, need to figure this out
+    /* .Ticket__TicketStyles-sc-1icmcvz-1:first-of-type {
       background-color: tan;
       .wrapper div.top.left.dot {
         transform-origin: 12px 0px;
         transform: rotate(-49deg);
         height: 9px;
         width: 9px;
-        display: block; //because left dots were made display none so they don't double up
+        display: block; 
+        //because left dots were made display none so they don't double up
       }
       .wrapper div.bottom.left.dot {
         transform-origin: 13px 10px;
@@ -39,8 +42,8 @@ const NavStyles = styled.header`
         width: 9px;
         display: block; //because left dots were made display none so they don't double up
       }
-    }
-    .Ticket__TicketStyles-sc-1icmcvz-0:last-of-type {
+    } */
+    /* .Ticket__TicketStyles-sc-1icmcvz-1:last-of-type {
       .wrapper div.top.right.dot {
         transform-origin: -2px 3px;
         transform: rotate(47deg);
@@ -60,7 +63,7 @@ const NavStyles = styled.header`
       }
       
       background-color: tan;
-    }
+    } */
     
     @media (max-width: 770px) {
         /* touch-action: none; */
@@ -83,7 +86,7 @@ const Toggle = styled.div`
     z-index: 1;
     }
 `;
-const Hamburger = styled.div`
+export const Hamburger = styled.div`
   background-color: #111;
   width: 30px;
   height: 3px;
@@ -119,19 +122,58 @@ const Navbox = styled.div`
     height: 100%;
     justify-content: flex-end;
     align-items: center;
+    
+    // the below targets the first nav item
+    ${TicketStyles}:first-of-type {
+      background-color: blue;
+      .wrapper div.top.left.dot {
+        transform-origin: 12px 0px;
+        transform: rotate(-49deg);
+        height: 9px;
+        width: 9px;
+        display: block; //because left dots were made display none so they don't double up
+      }
+      .wrapper div.bottom.left.dot {
+        transform-origin: 13px 10px;
+        transform: rotate(45deg);
+        height: 9px;
+        width: 9px;
+        display: block; //because left dots were made display none so they don't double up
+      }
+    }
+    // the below targets the last nav item
+    ${TicketStyles}:last-of-type {
+      .wrapper div.top.right.dot {
+        transform-origin: -2px 3px;
+        transform: rotate(47deg);
+        height: 9px;
+        width: 9px;
+      }
+      .wrapper {
+        border-right: 2px dashed black;
+      }
+      .wrapper div.bottom.right.dot { 
+        border-top: 1px solid var(--border-color); transform-origin: -2px 7px;
+        transform: rotate(-45deg);
+        height: 9px;
+        width: 9px;
+      }
+      background-color: tan;
+    }
   @media (max-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 60px;
+    justify-items: center;
+    margin: 0 auto;
     margin-top: var(--headerHeight);
-    flex-direction: column;
     height: 100vh;
     overflow-y: hidden;
     position: fixed;
     width: 100%;
-    justify-content: flex-start;
-    /* padding-top: 10vh; */
-    background-color: var(--background); /*var(--navBoxBackgroundColor);*/ 
+  
+    background-color: var(--background);
     transition: all .75s ease-in-out;
-    
-    /* top: var(--headerHeight); */
     left: ${props => (props.open ? "-100%" : "0")};
   }
 `;
