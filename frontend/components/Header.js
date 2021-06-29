@@ -4,14 +4,14 @@ import Nav, { Hamburger } from './Nav';
 import Search from './Search';
 import Ticket from './Ticket';
 
-const Logo = styled.h1`
+export const Logo = styled.h1`
   font-size: 2.75rem;
   margin-left: 2rem;
   margin-top: 10px;
   margin-bottom: 15px;
   line-height: 3rem;
   display: flex;
-  position: relative;
+  position: fixed;
   z-index: 4;
   /* transform: ${props => (props.open ? "rotate(5deg)" : "rotate(5deg)")}; */
   background: var(--logo);
@@ -80,7 +80,7 @@ export default function Header() {
     <HeaderStyles>
       <div className="bar">
           {/* <Ticket path="/" name="Movie Picker" /> */}
-        {/* <Logo>
+        <Logo>
           <div className="wrapper">
             <div className="top left dot"></div>
             <div className="top right dot"></div>
@@ -88,7 +88,7 @@ export default function Header() {
             <div className="bottom right dot"></div>
             <Link href="/">Movie Picker</Link>
           </div>
-        </Logo> */}
+        </Logo>
         <Nav />
       </div>
       <div className="sub-bar">

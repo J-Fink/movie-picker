@@ -22,6 +22,7 @@ const GlobalStyles = createGlobalStyle`
     --maxWidth: 1000px;
     --bs: 0 12px 24px 0 rgba(0,0,0,0.09);
     --border-color: #00000033;
+    --headerHeight: 96px;
     box-sizing: border-box;
     font-size: 62.5%;
   }

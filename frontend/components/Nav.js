@@ -6,12 +6,13 @@ import SignOut from './SignOut';
 import Ticket from './Ticket';
 import { useUser } from './User';
 import { TicketStyles } from './Ticket';
+import { Logo } from './Header';
 
 const NavStyles = styled.header`
     --line-height: 6.5vh;
     left: 0;
     width: 100%;
-    height: 96px;/*var(--headerHeight);*/
+    height: var(--headerHeight);
     display: flex;
     /* background: red; var(--navColor); */
     position: fixed;
@@ -166,15 +167,51 @@ const Navbox = styled.div`
     grid-gap: 60px;
     justify-items: center;
     margin: 0 auto;
+    padding-bottom: 96px;
     margin-top: var(--headerHeight);
     height: 100vh;
     overflow-y: hidden;
     position: fixed;
     width: 100%;
-  
     background-color: var(--background);
     transition: all .75s ease-in-out;
     left: ${props => (props.open ? "-100%" : "0")};
+
+// the below targets the first nav item
+${TicketStyles} {
+      .wrapper div.top.left.dot {
+        transform-origin: 12px 0px;
+        transform: rotate(-49deg);
+        height: 12px;
+        width: 12px;
+        display: block; //because left dots were made display none so they don't double up
+      }
+      .wrapper div.bottom.left.dot {
+        transform-origin: 13px 10px;
+        transform: rotate(45deg);
+        height: 12px;
+        width: 12px;
+        display: block; //because left dots were made display none so they don't double up
+      }
+      .wrapper div.top.right.dot {
+        transform-origin: 1px 3px;
+        transform: rotate(47deg);
+        height: 12px;
+        width: 12px;
+      }
+      .wrapper {
+        border-right: 2px dashed black;
+      }
+      .wrapper div.bottom.right.dot { 
+        border-top: 1px solid var(--border-color); transform-origin: 1px 8px;
+        transform: rotate(-45deg);
+        height: 12px;
+        width: 12px;
+      }
+      background-color: tan;
+    }
+    }
+
   }
 `;
 export default function Nav() {
