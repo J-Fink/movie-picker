@@ -126,7 +126,7 @@ const Navbox = styled.div`
     
     // the below targets the first nav item
     ${TicketStyles}:first-of-type {
-      background-color: blue;
+      // background-color: blue;
       .wrapper div.top.left.dot {
         transform-origin: 12px 0px;
         transform: rotate(-49deg);
@@ -159,7 +159,7 @@ const Navbox = styled.div`
         height: 9px;
         width: 9px;
       }
-      background-color: tan;
+      /* background-color: tan; */
     }
   @media (max-width: 768px) {
     display: grid;
@@ -208,7 +208,7 @@ ${TicketStyles} {
         height: 12px;
         width: 12px;
       }
-      background-color: tan;
+      /* background-color: tan; */
     }
     }
 
