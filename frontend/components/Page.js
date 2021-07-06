@@ -50,8 +50,9 @@ const GlobalStyles = createGlobalStyle`
 `;
 const InnerStyles = styled.div`
   max-width: var(--maxWidth);
-  margin: 0 auto;
+  margin: 40px auto;
   padding: 2rem;
+  text-align: center;
 `;
 export default function Page({ children }) {
     return (
