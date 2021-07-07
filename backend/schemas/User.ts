@@ -1,5 +1,5 @@
 import { list } from '@keystone-next/keystone/schema';
-import { text, password, relationship } from '@keystone-next/fields';
+import { text, password, relationship, checkbox, } from '@keystone-next/fields';
 import { permissions, rules } from '../access';
 
 export const User = list({
@@ -32,6 +32,7 @@ export const User = list({
             ref: 'Movie.user',
             many: true,
         }),
+       
         //add roles
     },
 });

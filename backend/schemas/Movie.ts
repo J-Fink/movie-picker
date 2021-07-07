@@ -1,4 +1,4 @@
-import { relationship, select, text } from "@keystone-next/fields";
+import { checkbox, relationship, select, text } from "@keystone-next/fields";
 import { list } from "@keystone-next/keystone/schema";
 import { isSignedIn, rules } from '../access';
 
@@ -32,6 +32,9 @@ export const Movie = list({
             defaultValue: ({ context }) => ({
                 connect: { id: context.session.itemId },
             }),
+        }),
+        seen: checkbox({
+            defaultValue: false,
         }),
     },
 });

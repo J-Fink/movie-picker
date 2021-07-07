@@ -12,17 +12,20 @@ const CREATE_MOVIE_MUTATION = gql`
         $name: String!
         $description: String!
         $rating: String!
+        $seen: Boolean
     ) {
     createMovie(
         data:{
             name: $name
             description: $description
             rating: $rating
+            seen: $seen
             }
         ) {
         id
         description
         rating
+        seen
   }
 }
 `;
@@ -33,6 +36,7 @@ export default function CreateMovie() {
         name: '',
         description: '',
         rating: '',
+        seen: false,
     });
     const [createMovie, { loading, error, data }] = useMutation(
         CREATE_MOVIE_MUTATION,
@@ -91,6 +95,10 @@ export default function CreateMovie() {
                         <option value="R">R</option>
                         <option value="NC-17">NC-17</option>
                     </select>
+                </label>
+                <label htmlFor="seen">
+                    Seen
+                    <input type="checkbox" />
                 </label>
                 <button type="submit">+ Add Movie</button>
             </fieldset>
