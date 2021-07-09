@@ -2,4 +2,4 @@
 export const endpoint = `http://localhost:3000/api/graphql`;
 export const prodEndpoint = `https://api.moviealternatives.com/api/graphql`;//this should point to /api/graphql
 
-export const perPage = 4;
+export const perPage = 400;//change this once I update all of the pagination
