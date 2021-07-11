@@ -34,6 +34,7 @@ export const Movie = list({
             }),
         }),
         seen: checkbox({
+            label: 'Seen It?',
             defaultValue: false,
         }),
     },

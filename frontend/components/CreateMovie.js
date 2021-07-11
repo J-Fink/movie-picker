@@ -97,8 +97,12 @@ export default function CreateMovie() {
                     </select>
                 </label>
                 <label htmlFor="seen">
-                    Seen
-                    <input type="checkbox" />
+                    Seen It?
+                    <input type="checkbox"
+                    id="seen"
+                    name="seen"
+                    onChange={handleChange}
+                    value={inputs.seen} />
                 </label>
                 <button type="submit">+ Add Movie</button>
             </fieldset>

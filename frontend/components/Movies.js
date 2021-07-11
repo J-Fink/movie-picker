@@ -52,7 +52,9 @@ export default function Movies({ page }) {
     
     return (
             <MoviesListStyles>
-                {data.allMovies.map((movie) => (
+                {data.authenticatedItem.movies.map((movie) => (
+                    !!movie.seen ?
+                    "" :
                     <Movie key={movie.id} movie={movie}></Movie>
                     )
                 )}

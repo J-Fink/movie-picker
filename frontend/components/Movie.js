@@ -17,6 +17,13 @@ export default function Movie({ movie }) {
                 :
                 ""
             }
+            {!!movie.seen ? 
+                <div>
+                    Seen it!
+                </div>
+                :
+                <div>Want to see it!</div>
+            }
             <div className="buttonList">
                 <Link href={{
                     pathname: '/update',

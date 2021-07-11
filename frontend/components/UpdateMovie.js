@@ -1,7 +1,9 @@
 import { useMutation, useQuery } from "@apollo/client";
 import gql from "graphql-tag";
+import { useEffect, useState } from "react";
 import useForm from "../lib/useForm";
 import DisplayError from "./DisplayError";
+import Movie from "./Movie";
 import Form from "./styles/Form";
 
 const SINGLE_MOVIE_QUERY =gql`
@@ -11,6 +13,7 @@ const SINGLE_MOVIE_QUERY =gql`
             rating
             description
             id
+            seen
         }
 }
 `;
@@ -21,15 +24,17 @@ const UPDATE_MOVIE_MUTATION = gql`
         $name: String
         $rating: String
         $description: String
+        $seen: Boolean!
     ) {
         updateMovie(
             id: $id
-            data: { name: $name, rating: $rating, description: $description }
+            data: { name: $name, rating: $rating, description: $description, seen: $seen }
         ) {
             name
             rating
             description
             id
+            seen
         }
     }
 `;
@@ -38,13 +43,41 @@ export default function UpdateMovie({ id }) {
     const { data, error, loading } = useQuery(SINGLE_MOVIE_QUERY, {
         variables: { id },
     });
+    // alert('update');
+    
+
+
+    
+    console.log(data);
+    const [isChecked, setIsChecked] = useState(data?.Movie.seen);
+    //using useEffect updates isChecked when we go to update a movie
+    //data was returning undefined, the below checks if it is undefined and sets the value to
+    useEffect(() => {
+        isChecked === undefined ? setIsChecked(data?.Movie.seen) :
+        setIsChecked(isChecked);
+    }
+    )
+    console.log(isChecked);
+    // console.log(data);
+    // console.log(isChecked);
     //2. We need to get the mutation to update the product
     const [updateMovie, { data: updateData, error: updateError, loading: updateLoading }] = useMutation(UPDATE_MOVIE_MUTATION)
     //2.5 create state for form inputs
     const { inputs, handleChange, clearForm, resetForm } = useForm(data?.Movie);
-    if (loading) return <p>Loading...</p>
-    //3. We need the form to handle the updates
-    
+    // const [check, setCheck] = useState(inputs.seen);
+    // useEffect(() => {
+        //     console.log(check);
+        // });
+        console.log(inputs);
+        console.log(typeof isChecked, typeof inputs.seen);
+        const handleOnClick = () => {
+            setIsChecked(!isChecked);
+            console.log(isChecked);
+        };
+        //3. We need the form to handle the updates
+        // (!!inputs.seen == false) ? setCheck(check) : setCheck(!check);
+        
+        if (loading) return <p>Loading...</p>
     return (
         <Form onSubmit={async (e) => {
             // TODO: handle submit
@@ -55,12 +88,14 @@ export default function UpdateMovie({ id }) {
                 name: inputs.name,
                 description: inputs.description,
                 rating: inputs.rating,
+                seen: isChecked,
             },
                 })
+            console.log(res);
             }
         }>
             <DisplayError error={error || updateError} />
-            <fieldset disable={updateLoading} aria-busy={updateLoading}>
+            <fieldset disable={updateLoading.toString()} aria-busy={updateLoading}>
                 <label htmlFor="name">
                     Name
                     <input
@@ -100,8 +135,41 @@ export default function UpdateMovie({ id }) {
                         <option value="NC-17">NC-17</option>
                     </select>
                 </label>
+                <label htmlFor="seen">
+                    Seen It?
+                   <input
+                        type="checkbox"
+                        id="seen"
+                        name="seen"
+                        value={isChecked}
+                        checked={isChecked}
+                        onChange={handleChange}
+                        onClick={handleOnClick}
+                    />
+                    {/* {
+                        inputs.seen ?
+                        <><input
+                        type="checkbox"
+                        id="seen"
+                        name="seen"
+                        onChange={handleChange}
+                        value={inputs.seen}
+                        checked= {true}/>
+                        <div>true</div></>
+                        :
+                        <><input
+                        type="checkbox"
+                        id="seen"
+                        name="seen"
+                        onChange={handleChange}
+                        value={inputs.seen}
+                        checked= {false} />
+                        <div>false</div></>
+
+                    } */}
+                </label>
                 <button type="submit">Update Movie</button>
             </fieldset>
         </Form>
-    )
+    ) 
 }
