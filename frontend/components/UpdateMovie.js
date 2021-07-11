@@ -68,12 +68,12 @@ export default function UpdateMovie({ id }) {
     // useEffect(() => {
         //     console.log(check);
         // });
-        console.log(inputs);
-        console.log(typeof isChecked, typeof inputs.seen);
-        const handleOnClick = () => {
-            setIsChecked(!isChecked);
-            console.log(isChecked);
-        };
+    console.log(inputs);
+    console.log(typeof isChecked, typeof inputs.seen);
+    const handleOnClick = () => {
+        setIsChecked(!isChecked);
+        console.log(isChecked);
+    };
         //3. We need the form to handle the updates
         // (!!inputs.seen == false) ? setCheck(check) : setCheck(!check);
         

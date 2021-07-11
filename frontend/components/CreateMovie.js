@@ -5,6 +5,7 @@ import Form from "./styles/Form";
 import gql from 'graphql-tag';
 import { ALL_MOVIES_QUERY } from './Movies';
 import Router from 'next/router';
+import { useEffect, useState } from 'react';
 
 const CREATE_MOVIE_MUTATION = gql`
     mutation CREATE_MOVIE_MUTATION(
@@ -44,7 +45,15 @@ export default function CreateMovie() {
             variables: inputs,
             refetchQueries: [{ query: ALL_MOVIES_QUERY }],
     })
-    
+    // const [isChecked, setIsChecked] = useState(data?.Movie.seen);
+    // useEffect(() => {
+    //     isChecked === undefined ? setIsChecked(data?.Movie.seen) :
+    //     setIsChecked(isChecked);
+    // });
+    // const handleOnClick = () => {
+    //     setIsChecked(!isChecked);
+    //     console.log(isChecked);
+    // };
     return (
         <Form onSubmit={async (e) => {
             e.preventDefault();
@@ -98,12 +107,17 @@ export default function CreateMovie() {
                 </label>
                 <label htmlFor="seen">
                     Seen It?
-                    <input type="checkbox"
+                    <input 
+                    type="checkbox"
                     id="seen"
                     name="seen"
+                    value={inputs.seen}
+                    // checked={isChecked}
                     onChange={handleChange}
-                    value={inputs.seen} />
+                    // onClick={handleOnClick}
+                    />
                 </label>
+            {console.log(inputs.seen)}
                 <button type="submit">+ Add Movie</button>
             </fieldset>
         </Form>
