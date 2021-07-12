@@ -13,7 +13,7 @@ const CREATE_MOVIE_MUTATION = gql`
         $name: String!
         $description: String!
         $rating: String!
-        $seen: Boolean
+        $seen: Boolean!
     ) {
     createMovie(
         data:{
@@ -32,28 +32,30 @@ const CREATE_MOVIE_MUTATION = gql`
 `;
 
 export default function CreateMovie() {
+    const [isChecked, setIsChecked] = useState(false);
     const { inputs, handleChange, clearForm, resetForm } = useForm({
            //have to add below any extra fields to the Add A Movie page
         name: '',
         description: '',
         rating: '',
-        seen: false,
+        seen: isChecked,
     });
+    console.log(inputs);
     const [createMovie, { loading, error, data }] = useMutation(
         CREATE_MOVIE_MUTATION,
         {
             variables: inputs,
             refetchQueries: [{ query: ALL_MOVIES_QUERY }],
     })
-    // const [isChecked, setIsChecked] = useState(data?.Movie.seen);
-    // useEffect(() => {
-    //     isChecked === undefined ? setIsChecked(data?.Movie.seen) :
-    //     setIsChecked(isChecked);
-    // });
-    // const handleOnClick = () => {
-    //     setIsChecked(!isChecked);
-    //     console.log(isChecked);
-    // };
+    console.log(data);
+    useEffect(() => {
+        setIsChecked(isChecked);
+    });
+    console.log(isChecked);
+    const handleOnClick = () => {
+        setIsChecked(!isChecked);
+        console.log(isChecked);
+    };
     return (
         <Form onSubmit={async (e) => {
             e.preventDefault();
@@ -111,13 +113,13 @@ export default function CreateMovie() {
                     type="checkbox"
                     id="seen"
                     name="seen"
-                    value={inputs.seen}
-                    // checked={isChecked}
+                    value={isChecked}
+                    checked={isChecked}
                     onChange={handleChange}
-                    // onClick={handleOnClick}
+                    onClick={handleOnClick}
                     />
                 </label>
-            {console.log(inputs.seen)}
+            {/* {console.log(inputs.seen)} */}
                 <button type="submit">+ Add Movie</button>
             </fieldset>
         </Form>
