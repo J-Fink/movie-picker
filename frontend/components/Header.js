@@ -86,7 +86,10 @@ export default function Header() {
             <div className="top right dot"></div>
             <div className="bottom left dot"></div>
             <div className="bottom right dot"></div>
-            <Link href="/">Movie Picker</Link>
+            <Link href="/">
+              {/* <a onClick={clickHandler}></a> */}
+              Movie Picker
+              </Link>
           </div>
         </Logo>
         <Nav />

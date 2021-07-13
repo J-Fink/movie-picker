@@ -217,28 +217,33 @@ ${TicketStyles} {
 export default function Nav() {
   const [menuState, setMenuState] = useState(false);
   const user = useUser();
+  const handleClick = () => {
+    console.log(menuState);
+    setMenuState(!menuState);
+    console.log(menuState);
+  }
   // console.log(user);
   return (
     <NavStyles>      
-        <Toggle onClick={() => setMenuState(!menuState)}>
+        <Toggle onClick={handleClick}>
         {/* below shows the hamburger bun or not */}
         {menuState ? <Hamburger open /> : <Hamburger />}
         </Toggle>
         {user && (
               menuState ? (
                 <Navbox>
-                  <Ticket name="To Watch" path="/movies" />
-                  <Ticket name="Seen" path="/seen" />
-                  <Ticket name="Pick" path="/pick" />
-                  <Ticket name="Add" path="/add" />
-                  <SignOut />
+                  <Ticket clickHandler={handleClick} name="To Watch" path="/movies" />
+                  <Ticket clickHandler={handleClick} name="Seen" path="/seen" />
+                  <Ticket clickHandler={handleClick} name="Pick" path="/pick" />
+                  <Ticket clickHandler={handleClick} name="Add" path="/add" />
+                  <SignOut clickHandler={handleClick} />
                 </Navbox>
               ) : (
                 <Navbox open>
-                  <Ticket name="To Watch" path="/movies" />
-                  <Ticket name="Seen" path="/seen" />
-                  <Ticket name="Pick" path="/pick" />
-                  <Ticket name="Add" path="/add" />
+                  <Ticket clickHandler={handleClick} name="To Watch" path="/movies" />
+                  <Ticket clickHandler={handleClick} name="Seen" path="/seen" />
+                  <Ticket clickHandler={handleClick} name="Pick" path="/pick" />
+                  <Ticket clickHandler={handleClick} name="Add" path="/add" />
                   <SignOut />
                 </Navbox>
               )
@@ -250,7 +255,7 @@ export default function Nav() {
                   {/* <Ticket name="Seen" path="/seen" /> */}
                   {/* <Ticket name="Pick" path="/pick" /> */}
                   {/* <Ticket name="Add" path="/add" /> */}
-                  <Ticket name="Sign In" path="/signin" />
+                  <Ticket clickHandler={handleClick} name="Sign In" path="/signin" />
                   {/* <SignOut /> */}
                 </Navbox>
               ) : (
@@ -259,7 +264,7 @@ export default function Nav() {
                   {/* <Ticket name="Seen" path="/seen" /> */}
                   {/* <Ticket name="Pick" path="/pick" /> */}
                   {/* <Ticket name="Add" path="/add" /> */}
-                  <Ticket name="Sign In" path="/signin" />
+                  <Ticket clickHandler={handleClick} name="Sign In" path="/signin" />
                   {/* <SignOut /> */}
                 </Navbox>
               )

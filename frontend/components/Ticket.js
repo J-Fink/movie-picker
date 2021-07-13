@@ -211,7 +211,7 @@ export function TicketButton({ buttonType, message }) {
     </TicketStylesButton>
   )
 };
-export default function Ticket({ path, name }) {
+export default function Ticket({ path, name, clickHandler }) {
   
   return (
     <TicketStyles>
@@ -220,7 +220,12 @@ export default function Ticket({ path, name }) {
               <div className="top right dot"></div>
               <div className="bottom left dot"></div>
               <div className="bottom right dot"></div>
-              <Link href={path}>{name}</Link>
+              {/* in order to pass an onClick function to a link, you need to pass it to a child */}
+              <Link href={path}> 
+                <a onClick={clickHandler}>
+                {name}
+                </a>
+                </Link>
           </div>
     </TicketStyles>
   )

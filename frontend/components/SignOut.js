@@ -3,6 +3,8 @@ import gql from 'graphql-tag';
 import { CURRENT_USER_QUERY } from './User';
 import styled from 'styled-components';
 import { TicketStyles } from './Ticket';
+
+
 const SignOutStyles = styled.button`
     background-color: blue;
 `;
@@ -13,10 +15,14 @@ const SIGNOUT_MUTATION = gql`
 
 `;
 
-export default function SignOut() {
+export default function SignOut({ clickHandler }) {
     const [signout] = useMutation(SIGNOUT_MUTATION, {
         refetchQueries: [{ query: CURRENT_USER_QUERY }],
     });
+    const signoutMenu = () => {
+        signout();
+        clickHandler();
+    }
     return (
         <TicketStyles>
             <div className="wrapper">
@@ -24,8 +30,7 @@ export default function SignOut() {
               <div className="top right dot"></div>
               <div className="bottom left dot"></div>
               <div className="bottom right dot"></div>
-                <button type="button" onClick={signout}>Sign Out</button>
-              
+                <button type="button" onClick={signoutMenu}>Sign Out</button>
           </div>
         </TicketStyles>
     )
