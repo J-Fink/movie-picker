@@ -9,17 +9,30 @@ import Movie from '../components/Movie';
 import Form from "../components/styles/Form";
 import useForm from "../lib/useForm";
 import { useEffect } from "react";
+import debounce from "lodash.debounce";
 
 
 
 
 export default function SearchPage() {
-
+    
     const { inputs, handleChange } = useForm({
         movieName: '',
     });
+    console.log(Object.keys(useForm({
+        movieName: '',
+    })));
+    console.log(inputs);
     const fetcher = (...args) => fetch(...args).then(res => res.json());
-    const publicMovieAPI = () => useSWR(`${process.env.NEXT_PUBLIC_OPEN_MOVIE_API_URL}?s=${inputs.movieName}&page=55&apikey=${process.env.NEXT_PUBLIC_OPEN_MOVIE_API_KEY}`, fetcher)
+    // let submitted = false;
+    
+    const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_OPEN_MOVIE_API_URL}?s=${inputs.movieName}&page=55&apikey=${process.env.NEXT_PUBLIC_OPEN_MOVIE_API_KEY}`, fetcher);
+    // console.log(myMovieAPI);
+    console.log(data);
+    console.log(error);
+    console.log(data?.Error);
+
+
     // console.log(data);
     // console.log(myApi.data);
     // console.log(data.Search);
@@ -29,23 +42,37 @@ export default function SearchPage() {
     // useEffect() {
     //     // inputs.movieName =
     // }
+    
     return (
         <>
         {/* <PleaseSignIn> */}
             <Form onSubmit={async (e) => {
                 e.preventDefault();
-                //Submit the input fields to the api, use that function
-                publicMovieAPI();
+                // const res = await movieAPI();
+                // console.log(res);
+                // submitted = true;//Submit the input fields to the api, use that function
+                // publicMovieAPI();
+                // const res = publicMovieAPI();
+
+                alert('submitted');
             }}>
                 <fieldset>
-                    <input onChange={() => handleChange}type="text" placeholder="Search for a Movie" value={inputs.movieName || ""} name="search" id="search" />
+                    <input
+                      onChange={handleChange} type="search" placeholder="Search for a Movie" value={inputs.movieName || ""}
+                      name="movieName" id="movieName"
+                     />
                     <button type="submit" >SEE MOVIES</button>
-                    <div>hi</div>
-
                 </fieldset>
+            {inputs.movieName}
             </Form>
-                {/* {data.Search[0].Title} 
-                {data.Search[0].Year} */}
+            {data?.Error ? <div>{data?.Error}</div> : ''}
+                <ul> 
+                {data?.Search?.map((movie) => (
+                    <li key={movie.imdbID}>{movie.Title} {movie.Year}</li>
+                ))} 
+                {/* {data.Search.Year} */}
+                </ul>
+                <div>{error}</div>
         
         {/* </PleaseSignIn> */}
         </>

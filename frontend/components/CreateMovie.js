@@ -48,6 +48,7 @@ export default function CreateMovie() {
             refetchQueries: [{ query: ALL_MOVIES_QUERY }],
     })
     console.log(data);
+    console.log(createMovie);
     useEffect(() => {
         setIsChecked(isChecked);
     });
