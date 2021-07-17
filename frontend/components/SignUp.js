@@ -33,6 +33,8 @@ export default function SignUp() {
   async function handleSubmit(e) {
     e.preventDefault(); // stop the form from submitting
     // console.log(inputs);
+    // alert('alert');
+    // console.log('alert');
     const res = await signup().catch(console.error);
     // console.log(res);
     // console.log({ data, loading, error });
@@ -78,13 +80,14 @@ export default function SignUp() {
           <input
             type="password"
             name="password"
-            placeholder="Password"
+            placeholder="PASSWORD"
             autoComplete="password"
             value={inputs.password}
             onChange={handleChange}
           />
         </label>
-        <TicketButton buttonType={"button"} message={"Sign Up!"}>
+        
+        <TicketButton buttonType={"submit"} message={"Sign Up!"}>
         </TicketButton>
       </fieldset>
     </Form>
