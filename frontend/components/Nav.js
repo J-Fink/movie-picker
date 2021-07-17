@@ -236,6 +236,7 @@ export default function Nav() {
                   <Ticket clickHandler={handleClick} name="Seen" path="/seen" />
                   <Ticket clickHandler={handleClick} name="Pick" path="/pick" />
                   <Ticket clickHandler={handleClick} name="Add" path="/add" />
+                  <Ticket clickHandler={handleClick} name="Search" path="/search" />
                   <SignOut clickHandler={handleClick} />
                 </Navbox>
               ) : (
@@ -244,6 +245,7 @@ export default function Nav() {
                   <Ticket clickHandler={handleClick} name="Seen" path="/seen" />
                   <Ticket clickHandler={handleClick} name="Pick" path="/pick" />
                   <Ticket clickHandler={handleClick} name="Add" path="/add" />
+                  <Ticket clickHandler={handleClick} name="Search" path="/search" />
                   <SignOut />
                 </Navbox>
               )
