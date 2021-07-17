@@ -80,13 +80,13 @@ export default function SearchPage() {
                 submitted ? console.log('submitted') : console.log('not submitted')
             }
                         
-                 {/* <ul> 
+                  <ul> 
                  {data?.Search?.map((movie) => (
                      <li key={movie.imdbID}>{movie.Title} {movie.Year}</li>
                  ))} 
                  </ul>
 
-            }  */}
+         
             {/* </PleaseSignIn> */}
         
         </>
