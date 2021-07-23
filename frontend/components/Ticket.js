@@ -211,6 +211,26 @@ export function TicketButton({ buttonType, message }) {
     </TicketStylesButton>
   )
 };
+
+export function TicketSingle({ path, name, clickHandler }) {
+  
+  return (
+    <TicketStylesButton>
+          <div className="wrapper">
+              <div className="top left dot"></div>
+              <div className="top right dot"></div>
+              <div className="bottom left dot"></div>
+              <div className="bottom right dot"></div>
+              {/* in order to pass an onClick function to a link, you need to pass it to a child */}
+              <Link href={path}> 
+                <a onClick={clickHandler}>
+                {name}
+                </a>
+                </Link>
+          </div>
+    </TicketStylesButton>
+  )
+}
 export default function Ticket({ path, name, clickHandler }) {
   
   return (

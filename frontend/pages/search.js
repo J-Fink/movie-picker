@@ -10,7 +10,21 @@ import Form from "../components/styles/Form";
 import useForm from "../lib/useForm";
 import { useEffect, useState } from "react";
 import debounce from "lodash.debounce";
+import styled from "styled-components";
 
+const SearchStyles = styled.div`
+    /* margin-top: var(--headerHeight); */
+    li {
+        list-style: none;
+        a {
+
+        }
+        a:hover {
+            background-color: grey;
+            cursor: pointer;
+        }
+    }
+`;
 
 
 
@@ -53,9 +67,9 @@ export default function SearchPage() {
     // }
     
     return (
-        <>
+        <SearchStyles >
         {/* <PleaseSignIn> */}
-            <Form onSubmit={async (e) => {
+            <Form style="margin-top:var(--headerHeight);" onSubmit={async (e) => {
                 e.preventDefault();
                 setSubmitted(true);
                 // console.log(submitMovieName);
@@ -82,14 +96,14 @@ export default function SearchPage() {
                         
                   <ul> 
                  {data?.Search?.map((movie) => (
-                     <li key={movie.imdbID}>{movie.Title} {movie.Year}</li>
+                     <li key={movie.imdbID}><a>{movie.Title} {movie.Year}</a></li>
                  ))} 
                  </ul>
 
          
             {/* </PleaseSignIn> */}
         
-        </>
+        </SearchStyles>
     )
   }
   

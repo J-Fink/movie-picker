@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Movie from '../components/Movie';
 import styled from 'styled-components';
 const PickStyles = styled.div`
-    margin: 45px auto;
+    /* margin: var(--headerHeight) auto; */
     max-width: 400px;
 `;
 

@@ -53,6 +53,7 @@ const InnerStyles = styled.div`
   margin: 40px auto;
   padding: 2rem;
   text-align: center;
+  margin-top: var(--headerHeight);
 `;
 export default function Page({ children }) {
     return (

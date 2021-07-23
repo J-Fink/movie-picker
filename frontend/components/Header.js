@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import Nav, { Hamburger } from './Nav';
-import Search from './Search';
-import Ticket from './Ticket';
+import Nav from './Nav';
+
 
 export const Logo = styled.h1`
   font-size: 2.75rem;
@@ -94,9 +93,6 @@ export default function Header() {
           </div>
         </Logo>
         <Nav />
-      </div>
-      <div className="sub-bar">
-        <Search />
       </div>
     </HeaderStyles>
   );
