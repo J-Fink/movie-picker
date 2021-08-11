@@ -15,7 +15,8 @@ export default function AccountAccess() {
         <GridStyles>
             <SignIn />
             <SignUp />
-            <RequestReset />
+            {/* the below can be added back in once I set up a mail service to reset your password */}
+            {/* <RequestReset /> */} 
         </GridStyles>
     )
 }
