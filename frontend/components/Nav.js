@@ -232,7 +232,7 @@ export default function Nav() {
         {user && (
               menuState ? (
                 <Navbox>
-                  <Ticket clickHandler={handleClick} name="To Watch" path="/movies" />
+                  {/* <Ticket clickHandler={handleClick} name="Welcome" path="/movies" /> */}
                   <Ticket clickHandler={handleClick} name="Seen" path="/seen" />
                   <Ticket clickHandler={handleClick} name="Pick" path="/pick" />
                   <Ticket clickHandler={handleClick} name="Add" path="/add" />
@@ -241,7 +241,7 @@ export default function Nav() {
                 </Navbox>
               ) : (
                 <Navbox open>
-                  <Ticket clickHandler={handleClick} name="To Watch" path="/movies" />
+                  {/* <Ticket clickHandler={handleClick} name="Welcome" path="/movies" /> */}
                   <Ticket clickHandler={handleClick} name="Seen" path="/seen" />
                   <Ticket clickHandler={handleClick} name="Pick" path="/pick" />
                   <Ticket clickHandler={handleClick} name="Add" path="/add" />
@@ -251,9 +251,9 @@ export default function Nav() {
               )
               )}
         {!user && (
-              menuState ? (
-                <Navbox>
-                  {/* <Ticket name="To Watch" path="/movies" /> */}
+          menuState ? (
+            <Navbox>
+                  <Ticket clickHandler={handleClick} name="Welcome" path="/movies" />
                   {/* <Ticket name="Seen" path="/seen" /> */}
                   {/* <Ticket name="Pick" path="/pick" /> */}
                   {/* <Ticket name="Add" path="/add" /> */}
@@ -262,6 +262,7 @@ export default function Nav() {
                 </Navbox>
               ) : (
                 <Navbox open>
+                  <Ticket clickHandler={handleClick} name="Welcome" path="/movies" />
                   {/* <Ticket name="To Watch" path="/movies" /> */}
                   {/* <Ticket name="Seen" path="/seen" /> */}
                   {/* <Ticket name="Pick" path="/pick" /> */}
