@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 import { perPage } from "../config";
 import Pagination from "../components/Pagination";
 import Movie from "../components/Movie";
-
+import { AboutPageStyles } from "./about";
 
 export default function SeenPage({ page }) {
     const { data, error, loading } = useQuery(ALL_MOVIES_QUERY, {
@@ -18,16 +18,20 @@ console.log(data);
     if (error) return <p>{error.message}</p>
     return (
         <PleaseSignIn>
-            <div>hello</div>
-        <Pagination page={page || 1} />
-        <MoviesListStyles>
-        {data.authenticatedItem.movies.map((movie) => (
-           !!movie.seen ?
-           <Movie key={movie.id} movie={movie}></Movie> :
-           ""
-            )
-        )}
-        </MoviesListStyles>
+        {data.authenticatedItem.movies ? 
+        <AboutPageStyles>You don't have any movies you have seen yet</AboutPageStyles> : 
+        <>
+            <Pagination page={page || 1} />
+            <MoviesListStyles>
+            {data.authenticatedItem.movies.map((movie) => (
+            !!movie.seen ?
+            <Movie key={movie.id} movie={movie}></Movie> :
+            ""
+                )
+            )}
+            </MoviesListStyles>
+        </>
+        }
         </PleaseSignIn>
     )
   }
