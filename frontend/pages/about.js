@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { TicketSingle } from "../components/Ticket";
-const AboutPageStyles = styled.div`
+
+export const AboutPageStyles = styled.div`
 border: 4px solid white;
 border-radius: 10px;
 max-width: 400px;
