@@ -14,6 +14,7 @@ import styled from "styled-components";
 
 const SearchStyles = styled.div`
     /* margin-top: var(--headerHeight); */
+    /* margin-top:var(--headerHeight); */
     li {
         list-style: none;
         a {
@@ -29,7 +30,7 @@ const SearchStyles = styled.div`
 
 
 export default function SearchPage() {
-    
+    // console.log(error);
     const { inputs, handleChange } = useForm({
         movieName: '',
     });
@@ -38,16 +39,12 @@ export default function SearchPage() {
     // }));
     console.log(inputs);
     const fetcher = (...args) => fetch(...args).then(res => res.json());
-    
-    
-    // let submitMovieName = '';
-    // const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_OPEN_MOVIE_API_URL}?s=${submitMovieName}&apikey=${process.env.NEXT_PUBLIC_OPEN_MOVIE_API_KEY}`, fetcher);
-    // console.log(myMovieAPI);
     const [submitted, setSubmitted] = useState(false);
 
     // can capture these variables and the conditional inside the hook is allowed, so you don't have different hook calls.
     //useState is connected to the submit button
     const {data, error} = useSWR(() => {
+        if (error) return <p>{error.message}</p>
         if(submitted) {
             return(
                 `${process.env.NEXT_PUBLIC_OPEN_MOVIE_API_URL}?s=${inputs.movieName}&apikey=${process.env.NEXT_PUBLIC_OPEN_MOVIE_API_KEY}`
@@ -55,31 +52,16 @@ export default function SearchPage() {
         }
     }, fetcher);
     console.log(data);
-    // console.log(data?.Error);
-    // console.log(data);
-    // console.log(myApi.data);
-    // console.log(data.Search);
-    // if(error) return <div>{error}</div>
-    // if(!data) return <div>loading...</div>
-    // console.log(inputs);
-    // useEffect() {
-    //     // inputs.movieName =
-    // }
+    console.log(error);
     
     return (
         <SearchStyles >
         {/* <PleaseSignIn> */}
-            <Form style="margin-top:var(--headerHeight);" onSubmit={async (e) => {
+            
+            <Form onSubmit={async (e) => {
                 e.preventDefault();
                 setSubmitted(true);
-                // console.log(submitMovieName);
-                // const res = await movieAPI();
-                // console.log(res);
-                // submitted = true;//Submit the input fields to the api, use that function
-                // publicMovieAPI();
-                // const res = publicMovieAPI();
-                
-                // alert('submitted');
+            
             }}>
                 <fieldset>
                     <input
@@ -89,16 +71,16 @@ export default function SearchPage() {
                     <button type="submit" >SEE MOVIES</button>
                 </fieldset>
             {inputs.movieName}
+            <ul> 
+           {data?.Search?.map((movie) => (
+               <li key={movie.imdbID}><a>{movie.Title} {movie.Year}</a></li>
+           ))} 
+           </ul>
             </Form>
-            {
+            {/* {
                 submitted ? console.log('submitted') : console.log('not submitted')
-            }
+            } */}
                         
-                  <ul> 
-                 {data?.Search?.map((movie) => (
-                     <li key={movie.imdbID}><a>{movie.Title} {movie.Year}</a></li>
-                 ))} 
-                 </ul>
 
          
             {/* </PleaseSignIn> */}
