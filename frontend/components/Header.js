@@ -6,8 +6,8 @@ import Nav from './Nav';
 export const Logo = styled.h1`
   font-size: 2.75rem;
   margin-left: 2rem;
-  margin-top: 10px;
-  margin-bottom: 15px;
+  /* margin-top: 10px;
+  margin-bottom: 15px; */
   line-height: 3rem;
   display: flex;
   position: fixed;

@@ -16,7 +16,7 @@ export default function AboutPage() {
     return (
         <AboutPageStyles>
             <h1>Welcome to Movie Picker</h1>
-            <div>It's tough choosing what to watch. My solution? Make a computer choose for you.</div>
+            <div>about page</div>
             <TicketSingle path="/signin" name="get started" />
         </AboutPageStyles>
     )

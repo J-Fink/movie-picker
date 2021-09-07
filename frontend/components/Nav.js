@@ -10,6 +10,7 @@ import { Logo } from './Header';
 
 const NavStyles = styled.header`
     --line-height: 6.5vh;
+    margin-top: var(--headerHeight);
     left: 0;
     width: 100%;
     height: var(--headerHeight);
@@ -233,6 +234,7 @@ export default function Nav() {
               menuState ? (
                 <Navbox>
                   {/* <Ticket clickHandler={handleClick} name="Welcome" path="/movies" /> */}
+                  <Ticket clickHandler={handleClick} name="My Movies" path="/movies" />
                   <Ticket clickHandler={handleClick} name="Seen" path="/seen" />
                   <Ticket clickHandler={handleClick} name="Pick" path="/pick" />
                   <Ticket clickHandler={handleClick} name="Add" path="/add" />
@@ -242,6 +244,7 @@ export default function Nav() {
               ) : (
                 <Navbox open>
                   {/* <Ticket clickHandler={handleClick} name="Welcome" path="/movies" /> */}
+                  <Ticket clickHandler={handleClick} name="My Movies" path="/movies" />
                   <Ticket clickHandler={handleClick} name="Seen" path="/seen" />
                   <Ticket clickHandler={handleClick} name="Pick" path="/pick" />
                   <Ticket clickHandler={handleClick} name="Add" path="/add" />
