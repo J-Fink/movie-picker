@@ -12,6 +12,7 @@ export default function MoviesPage() {
     console.log(data?.authenticatedItem.movies);
     return (
         <>
+         <Pagination page={page || 1}/>
             <div>This is the Movies Page</div>
             <div>{data?.authenticatedItem.movies.map((movie) => {
                 return <div>{movie.name}</div>
