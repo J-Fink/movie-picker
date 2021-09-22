@@ -10,7 +10,7 @@ import { Logo } from './Header';
 
 const NavStyles = styled.header`
     --line-height: 6.5vh;
-    /* margin-top: var(--headerHeight); */
+    margin-top: var(--headerHeight);
     left: 0;
     width: 100%;
     height: var(--headerHeight);
