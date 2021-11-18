@@ -18,7 +18,7 @@ const GlobalStyles = createGlobalStyle`
     --lightGray: var(--lightGrey);
     --offWhite: #ededed;
     --logo: #fde276;
-    --background: #e6ce81;
+    --background: linear-gradient(0.45turn, grey, white);
     --maxWidth: 1000px;
     --bs: 0 12px 24px 0 rgba(0,0,0,0.09);
     --border-color: #00000033;
