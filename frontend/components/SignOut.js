@@ -7,9 +7,16 @@ import { useUser } from './User';
 import txtResize from './TextResizer';
 import { useEffect, useRef, useState } from 'react';
 const SignOutStyles = styled.div`
+    display: flex;
+    justify-content: end;
+    
+    button {
+        background: var(--inverseBackground);
+    }
     button:hover {
         color: white;
-        cursor: default;
+        cursor: pointer;
+        pointer-events: none;
     }
     .sign-out {
         color: grey;
@@ -67,12 +74,10 @@ export default function SignOut({ clickHandler }) {
     return (
         <TicketStyles>
             <SignOutStyles className="wrapper">
-                <div className="top left dot"></div>
-                <div className="top right dot"></div>
-                <div className="bottom left dot"></div>
-                <div className="bottom right dot"></div>
-                <button type="button" onClick={signoutMenu}><span id="name-span" ref={spanRef}>{me.name}</span><span className="sign-out">Not you? Sign Out</span></button>
-            
+                <button type="button" onClick={signoutMenu}>
+                    <span id="name-span" ref={spanRef}>{me.name}</span>
+                    <span className="sign-out">Not you? Sign Out</span>
+                </button>
             </SignOutStyles>
         </TicketStyles>
     )

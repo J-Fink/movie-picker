@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 const Rating = styled.span`
-  background: var(--red);
+  background: var(--ratingBackground);
   transform: rotate(3deg);
-  color: white;
+  color: var(--titleTextColor);
   font-weight: 600;
   padding: 5px;
   line-height: 1;
