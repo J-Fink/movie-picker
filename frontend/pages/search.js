@@ -15,6 +15,9 @@ import styled from "styled-components";
 const SearchStyles = styled.div`
     /* margin-top: var(--headerHeight); */
     /* margin-top:var(--headerHeight); */
+    .selected-movie {
+        cursor: pointer;
+    }
     li {
         list-style: none;
         a {
@@ -40,7 +43,9 @@ export default function SearchPage() {
     console.log(inputs);
     const fetcher = (...args) => fetch(...args).then(res => res.json());
     const [submitted, setSubmitted] = useState(false);
-
+    const handleFocus = () => {
+        setSubmitted(false);
+    }
     // can capture these variables and the conditional inside the hook is allowed, so you don't have different hook calls.
     //useState is connected to the submit button
     const {data, error} = useSWR(() => {
@@ -53,7 +58,9 @@ export default function SearchPage() {
     }, fetcher);
     console.log(data);
     console.log(error);
-    
+    const handleClick = (title, rating) => {
+        alert(`add ${title} with rating ${rating}?`)
+    }
     return (
         <SearchStyles >
         {/* <PleaseSignIn> */}
@@ -61,11 +68,12 @@ export default function SearchPage() {
             <Form onSubmit={async (e) => {
                 e.preventDefault();
                 setSubmitted(true);
+                // setSubmitted(false);
             
             }}>
                 <fieldset>
                     <input
-                      onChange={handleChange} type="search" placeholder="Search for a Movie" value={inputs.movieName || ""}
+                      onFocus={handleFocus} onChange={handleChange} type="search" placeholder="Search for a Movie" value={inputs.movieName || ""}
                       name="movieName" id="movieName"
                      />
                     <button type="submit" >SEE MOVIES</button>
@@ -73,7 +81,8 @@ export default function SearchPage() {
             {inputs.movieName}
             <ul> 
            {data?.Search?.map((movie) => (
-               <li key={movie.imdbID}><a>{movie.Title} {movie.Year}</a></li>
+               
+               <li key={movie.imdbID}><span className="selected-movie" onClick={handleClick}>{movie.Title} {movie.Year}</span></li>
            ))} 
            </ul>
             </Form>
