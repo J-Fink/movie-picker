@@ -27,45 +27,7 @@ const NavStyles = styled.header`
     z-index: 3;
     align-self: center;
     //This targets the first and last of the nav items, issue of the id changing, need to figure this out
-    /* .Ticket__TicketStyles-sc-1icmcvz-1:first-of-type {
-      background-color: tan;
-      .wrapper div.top.left.dot {
-        transform-origin: 12px 0px;
-        transform: rotate(-49deg);
-        height: 9px;
-        width: 9px;
-        display: block; 
-        //because left dots were made display none so they don't double up
-      }
-      .wrapper div.bottom.left.dot {
-        transform-origin: 13px 10px;
-        transform: rotate(45deg);
-        height: 9px;
-        width: 9px;
-        display: block; //because left dots were made display none so they don't double up
-      }
-    } */
-    /* .Ticket__TicketStyles-sc-1icmcvz-1:last-of-type {
-      .wrapper div.top.right.dot {
-        transform-origin: -2px 3px;
-        transform: rotate(47deg);
-        height: 9px;
-        width: 9px;
-      }
-      .wrapper {
-        border-right: 2px dashed black;
-      }
-      .wrapper div.bottom.right.dot {
-        
-        
-        border-top: 1px solid var(--border-color); transform-origin: -2px 7px;
-        transform: rotate(-45deg);
-        height: 9px;
-        width: 9px;
-      }
-      
-      background-color: tan;
-    } */
+    
     
     @media (max-width: 770px) {
         /* touch-action: none; */
@@ -125,43 +87,6 @@ const Navbox = styled.div`
     justify-content: flex-end;
     align-items: center;
     
-    // the below targets the first nav item
-    ${TicketStyles}:first-of-type {
-      // background-color: blue;
-      .wrapper div.top.left.dot {
-        transform-origin: 12px 0px;
-        transform: rotate(-49deg);
-        height: 9px;
-        width: 9px;
-        display: block; //because left dots were made display none so they don't double up
-      }
-      .wrapper div.bottom.left.dot {
-        transform-origin: 13px 10px;
-        transform: rotate(45deg);
-        height: 9px;
-        width: 9px;
-        display: block; //because left dots were made display none so they don't double up
-      }
-    }
-    // the below targets the last nav item
-    ${TicketStyles}:last-of-type {
-      .wrapper div.top.right.dot {
-        transform-origin: -2px 3px;
-        transform: rotate(47deg);
-        height: 9px;
-        width: 9px;
-      }
-      .wrapper {
-        border-right: 2px dashed black;
-      }
-      .wrapper div.bottom.right.dot { 
-        border-top: 1px solid var(--border-color); transform-origin: -2px 7px;
-        transform: rotate(-45deg);
-        height: 9px;
-        width: 9px;
-      }
-      /* background-color: tan; */
-    }
   @media (max-width: 768px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -179,39 +104,6 @@ const Navbox = styled.div`
     left: ${props => (props.open ? "-100%" : "0")};
 
 // the below targets the first nav item
-${TicketStyles} {
-      .wrapper div.top.left.dot {
-        transform-origin: 12px 0px;
-        transform: rotate(-49deg);
-        height: 12px;
-        width: 12px;
-        display: block; //because left dots were made display none so they don't double up
-      }
-      .wrapper div.bottom.left.dot {
-        transform-origin: 13px 10px;
-        transform: rotate(45deg);
-        height: 12px;
-        width: 12px;
-        display: block; //because left dots were made display none so they don't double up
-      }
-      .wrapper div.top.right.dot {
-        transform-origin: 1px 3px;
-        transform: rotate(47deg);
-        height: 12px;
-        width: 12px;
-      }
-      .wrapper {
-        border-right: 2px dashed black;
-      }
-      .wrapper div.bottom.right.dot { 
-        border-top: 1px solid var(--border-color); transform-origin: 1px 8px;
-        transform: rotate(-45deg);
-        height: 12px;
-        width: 12px;
-      }
-      /* background-color: tan; */
-    }
-    }
 
   }
 `;

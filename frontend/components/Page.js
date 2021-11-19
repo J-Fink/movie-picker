@@ -10,7 +10,9 @@ const GlobalStyles = createGlobalStyle`
     font-style: normal;
   }
   html {
-    --red: #f74d4d;
+    --titleBackground: var(--inverseBackground);
+    --ratingBackground: var(--inverseBackground);
+    --titleTextColor: #fbffbf;
     --black: #393939;
     --grey: #3A3A3A;
     --gray: var(--grey);
@@ -19,6 +21,7 @@ const GlobalStyles = createGlobalStyle`
     --offWhite: #ededed;
     --logo: #fde276;
     --background: linear-gradient(0.45turn, grey, white);
+    --inverseBackground: linear-gradient(0.45turn, white, grey);
     --maxWidth: 1000px;
     --bs: 0 12px 24px 0 rgba(0,0,0,0.09);
     --border-color: #00000033;
@@ -30,12 +33,14 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: inherit;
   }
   body {
-    background-color: var(--background);
+    /* background-color: var(--background); */
+    background: var(--background);
     font-family: 'radnika_next', --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding: 0;
     margin: 0;
     font-size: 1.5rem;
     line-height:2;
+    min-height: 100vh;
   }
   a {
     text-decoration: none;
@@ -46,6 +51,7 @@ const GlobalStyles = createGlobalStyle`
   }
   button {
     font-family: 'radnika_next', --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: var(--inverseBackground);
   }
 `;
 const InnerStyles = styled.div`

@@ -25,6 +25,7 @@ query ALL_MOVIES_QUERY($skip: Int = 0, $first: Int) {
     id
     description
     name
+    seen
     rating
   }
 }
