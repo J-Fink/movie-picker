@@ -16,14 +16,16 @@ export default function SeenPage({ page }) {
 console.log(data);
     if (loading) return <p>Loading...</p>
     if (error) return <p>{error.message}</p>
+    // console.log(data.authenticatedItem.movies);
     return (
         <PleaseSignIn>
-        {data.authenticatedItem.movies ? 
+        {!data.authenticatedItem.movies ? 
         <AboutPageStyles>You don't have any movies you have seen yet</AboutPageStyles> : 
         <>
             <Pagination page={page || 1} />
             <MoviesListStyles>
             {data.authenticatedItem.movies.map((movie) => (
+            // console.log(movie.seen)
             !!movie.seen ?
             <Movie key={movie.id} movie={movie}></Movie> :
             ""
